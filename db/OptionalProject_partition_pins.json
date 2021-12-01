@@ -1,0 +1,89 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "vga_h_sync",
+					"strict" : false
+				},
+				{
+					"name" : "vga_v_sync",
+					"strict" : false
+				},
+				{
+					"name" : "vga_R[0]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_R[1]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_R[2]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_R[3]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_G[0]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_G[1]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_G[2]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_G[3]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_B[0]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_B[1]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_B[2]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_B[3]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "button_reset",
+					"strict" : false
+				},
+				{
+					"name" : "button_left",
+					"strict" : false
+				},
+				{
+					"name" : "button_down",
+					"strict" : false
+				},
+				{
+					"name" : "button_up",
+					"strict" : false
+				},
+				{
+					"name" : "button_right",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

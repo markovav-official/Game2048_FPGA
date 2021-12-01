@@ -1,0 +1,203 @@
+module OptionalProject (clk, vga_h_sync, vga_v_sync, vga_R, vga_G, vga_B);
+input clk;
+output vga_h_sync, vga_v_sync, vga_R, vga_G, vga_B;
+
+wire inDisplayArea;
+wire [9:0] CounterX;
+wire [8:0] CounterY;
+
+wire [4:0] values;
+
+hvsync_generator syncgen(.clk(clk), .hsync (vga_h_sync), .vsync (vga_v_sync), .display_on(inDisplayArea), .hpos(CounterX), .vpos(CounterY));
+
+reg vga_R, vga_G, vga_B;
+always @(posedge clk)
+begin
+	if (~inDisplayArea)
+	begin
+		vga_R <= 1'b0;
+		vga_G <= 1'b0;
+		vga_B <= 1'b0;
+	end
+	else if (checkIsGrid(CounterX, CounterY))
+	begin
+		vga_R <= 1'b1;
+		vga_G <= 1'b1;
+		vga_B <= 1'b1;
+	end
+	else if (checkIsDigit(CounterX, CounterY))
+	begin
+		vga_R <= 1'b0;
+		vga_G <= 1'b1;
+		vga_B <= 1'b0;
+	end
+	else if (checkIsInGrid(CounterX, CounterY))
+	begin
+		vga_R <= 1'b0;
+		vga_G <= 1'b0;
+		vga_B <= 1'b0;
+	end
+	else
+	begin
+		vga_R <= 1'b0;
+		vga_G <= 1'b1;
+		vga_B <= 1'b1;
+	end
+end
+
+
+function checkIsGrid;
+	input wire [9:0] x;
+	input wire [8:0] y;
+	integer cordX;
+	integer cordY;
+	reg temp;
+	begin
+		temp = 1'b0;
+		cordX = CounterX;
+		cordY = CounterY;
+		if (cordX >= 121 && cordX <= 535 && cordY >= 41 && cordY <= 43 ||
+			cordX >= 121 && cordX <= 535 && cordY >= 144 && cordY <= 146 ||
+			cordX >= 121 && cordX <= 535 && cordY >= 247 && cordY <= 249 ||
+			cordX >= 121 && cordX <= 535 && cordY >= 350 && cordY <= 352 ||
+			cordX >= 121 && cordX <= 535 && cordY >= 453 && cordY <= 455)
+			temp = 1'b1;
+		if (cordX >= 121 && cordX <= 123 && cordY >= 41 && cordY <= 455 ||
+			cordX >= 224 && cordX <= 226 && cordY >= 41 && cordY <= 455 ||
+			cordX >= 327 && cordX <= 329 && cordY >= 41 && cordY <= 455 ||
+			cordX >= 430 && cordX <= 432 && cordY >= 41 && cordY <= 455 ||
+			cordX >= 533 && cordX <= 535 && cordY >= 41 && cordY <= 455)
+			temp = 1'b1;
+		checkIsGrid = temp;
+	end
+endfunction
+
+function checkIsInGrid;
+	input wire [9:0] x;
+	input wire [8:0] y;
+	integer cordX;
+	integer cordY;
+	reg temp;
+	begin
+		temp = 1'b0;
+		cordX = CounterX;
+		cordY = CounterY;
+		if (cordX >= 121 && cordX <= 535 && cordY >= 41 && cordY <= 455)
+			temp = 1'b1;
+		checkIsInGrid = temp;
+	end
+endfunction
+
+function automatic [4:0] checkCell;
+    input wire [9:0] x;
+    input wire [8:0] y;
+    integer temp;
+	 integer cordX;
+	 integer cordY;
+    begin
+        temp = 16;
+        cordX = CounterX;
+        cordY = CounterY;
+        if (cordX >= 124 && cordX <= 223 && cordY >= 44 && cordY <= 143)
+            temp = 0;
+        if (cordX >= 227 && cordX <= 326 && cordY >= 44 && cordY <= 143)
+            temp = 1;
+        if (cordX >= 330 && cordX <= 429 && cordY >= 44 && cordY <= 143)
+            temp = 2;
+        if (cordX >= 433 && cordX <= 532 && cordY >= 44 && cordY <= 143)
+            temp = 3;
+        if (cordX >= 124 && cordX <= 223 && cordY >= 147 && cordY <= 246)
+            temp = 4;
+        if (cordX >= 227 && cordX <= 326 && cordY >= 147 && cordY <= 246)
+            temp = 5;
+        if (cordX >= 330 && cordX <= 429 && cordY >= 147 && cordY <= 246)
+            temp = 6;
+        if (cordX >= 433 && cordX <= 532 && cordY >= 147 && cordY <= 246)
+            temp = 7;
+        if (cordX >= 124 && cordX <= 223 && cordY >= 250 && cordY <= 349)
+            temp = 8;
+        if (cordX >= 227 && cordX <= 326 && cordY >= 250 && cordY <= 349)
+            temp = 9;
+        if (cordX >= 330 && cordX <= 429 && cordY >= 250 && cordY <= 349)
+            temp = 10;
+        if (cordX >= 433 && cordX <= 532 && cordY >= 250 && cordY <= 349)
+            temp = 11;
+        if (cordX >= 124 && cordX <= 223 && cordY >= 353 && cordY <= 452)
+            temp = 12;
+        if (cordX >= 227 && cordX <= 326 && cordY >= 353 && cordY <= 452)
+            temp = 13;
+        if (cordX >= 330 && cordX <= 429 && cordY >= 353 && cordY <= 452)
+            temp = 14;
+        if (cordX >= 433 && cordX <= 532 && cordY >= 353 && cordY <= 452)
+            temp = 15;
+        checkCell = temp;
+	end
+endfunction
+
+function checkIsDigit;
+	input wire [9:0] x;
+	input wire [8:0] y;
+	integer cordX;
+	integer cordY;
+	integer curCell;
+	integer tempX;
+	integer tempY;
+	reg temp;
+	begin
+		temp = 1'b0;
+		cordX = CounterX;
+		cordY = CounterY;
+		curCell = checkCell(CounterX, CounterY);
+		if (curCell < 16)
+		begin
+			if (curCell % 4 == 0) tempX = cordX - 124;
+			else if (curCell % 4 == 1) tempX = cordX - 227;
+			else if (curCell % 4 == 2) tempX = cordX - 330;
+			else if (curCell % 4 == 3) tempX = cordX - 433;
+			if (curCell < 4) tempY = cordY - 44;
+			else if (curCell < 8) tempY = cordY - 147;
+			else if (curCell < 12) tempY = cordY - 250;
+			else if (curCell < 16) tempY = cordY - 353;
+			values[0] = 2;
+			if (values[curCell] == 2)
+			begin
+				if (tempY >= 8 && tempY <= 10 && tempX >= 23 && tempX <= 73)
+					temp = 1'b1;
+				if (tempY >= 48 && tempY <= 50 && tempX >= 23 && tempX <= 73)
+					temp = 1'b1;
+				if (tempY >= 88 && tempY <= 90 && tempX >= 23 && tempX <= 75)
+					temp = 1'b1;
+				if (tempY >= 8 && tempY <= 50 && tempX >= 73 && tempX <= 75)
+					temp = 1'b1;
+				if (tempY >= 48 && tempY <= 88 && tempX >= 23 && tempX <= 25)
+					temp = 1'b1;
+			end
+			else if (values[curCell] == 4)
+			begin
+				if (tempY >= 48 && tempY <= 50 && tempX >= 23 && tempX <= 73)
+					 temp = 1'b1;
+				if (tempY >= 8 && tempY <= 90 && tempX >= 73 && tempX <= 75)
+					 temp = 1'b1;
+				if (tempY >= 8 && tempY <= 48 && tempX >= 23 && tempX <= 25)
+					 temp = 1'b1;
+			end
+			else if (values[curCell] == 8)
+			begin
+				if (tempY >= 8 && tempY <= 10 && tempX >= 23 && tempX <= 73)
+					 temp = 1'b1;
+				if (tempY >= 48 && tempY <= 50 && tempX >= 23 && tempX <= 73)
+					 temp = 1'b1;
+				if (tempY >= 88 && tempY <= 90 && tempX >= 23 && tempX <= 75)
+					 temp = 1'b1;
+				if (tempY >= 8 && tempY <= 90 && tempX >= 73 && tempX <= 75)
+					 temp = 1'b1;
+				if (tempY >= 8 && tempY <= 90 && tempX >= 23 && tempX <= 25)
+					 temp = 1'b1;
+			end
+		end
+		checkIsDigit = temp;
+	end
+endfunction
+
+
+endmodule

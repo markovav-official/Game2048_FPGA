@@ -1,0 +1,833 @@
+Analysis & Synthesis report for OptionalProject
+Wed Dec 01 19:33:13 2021
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: hvsync_generator:syncgen
+ 13. Parameter Settings for User Entity Instance: button_debouncer:debouncer_reset
+ 14. Parameter Settings for User Entity Instance: button_debouncer:debouncer_up
+ 15. Parameter Settings for User Entity Instance: button_debouncer:debouncer_down
+ 16. Parameter Settings for User Entity Instance: button_debouncer:debouncer_left
+ 17. Parameter Settings for User Entity Instance: button_debouncer:debouncer_right
+ 18. Port Connectivity Checks: "button_debouncer:debouncer_right"
+ 19. Port Connectivity Checks: "button_debouncer:debouncer_left"
+ 20. Port Connectivity Checks: "button_debouncer:debouncer_down"
+ 21. Port Connectivity Checks: "button_debouncer:debouncer_up"
+ 22. Port Connectivity Checks: "button_debouncer:debouncer_reset"
+ 23. Port Connectivity Checks: "hvsync_generator:syncgen"
+ 24. Post-Synthesis Netlist Statistics for Top Partition
+ 25. Elapsed Time Per Partition
+ 26. Analysis & Synthesis Messages
+ 27. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Dec 01 19:33:13 2021       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; OptionalProject                             ;
+; Top-level Entity Name              ; OptionalProject                             ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 23,816                                      ;
+;     Total combinational functions  ; 23,809                                      ;
+;     Dedicated logic registers      ; 662                                         ;
+; Total registers                    ; 662                                         ;
+; Total pins                         ; 20                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                           ;
++------------------------------------------------------------------+-----------------+--------------------+
+; Option                                                           ; Setting         ; Default Value      ;
++------------------------------------------------------------------+-----------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G  ;                    ;
+; Top-level entity name                                            ; OptionalProject ; OptionalProject    ;
+; Family name                                                      ; MAX 10          ; Cyclone V          ;
+; VHDL Show LMF Mapping Messages                                   ; Off             ;                    ;
+; Verilog Show LMF Mapping Messages                                ; Off             ;                    ;
+; Iteration limit for non-constant Verilog loops                   ; 1024            ; 250                ;
+; Power Optimization During Synthesis                              ; Off             ; Normal compilation ;
+; Use smart compilation                                            ; Off             ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On              ; On                 ;
+; Enable compact report table                                      ; Off             ; Off                ;
+; Restructure Multiplexers                                         ; Auto            ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off             ; Off                ;
+; Preserve fewer node names                                        ; On              ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable          ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001    ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993       ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto            ; Auto               ;
+; Safe State Machine                                               ; Off             ; Off                ;
+; Extract Verilog State Machines                                   ; On              ; On                 ;
+; Extract VHDL State Machines                                      ; On              ; On                 ;
+; Ignore Verilog initial constructs                                ; Off             ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000            ; 5000               ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On              ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On              ; On                 ;
+; Parallel Synthesis                                               ; On              ; On                 ;
+; DSP Block Balancing                                              ; Auto            ; Auto               ;
+; NOT Gate Push-Back                                               ; On              ; On                 ;
+; Power-Up Don't Care                                              ; On              ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off             ; Off                ;
+; Remove Duplicate Registers                                       ; On              ; On                 ;
+; Ignore CARRY Buffers                                             ; Off             ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off             ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off             ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off             ; Off                ;
+; Ignore LCELL Buffers                                             ; Off             ; Off                ;
+; Ignore SOFT Buffers                                              ; On              ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off             ; Off                ;
+; Optimization Technique                                           ; Balanced        ; Balanced           ;
+; Carry Chain Length                                               ; 70              ; 70                 ;
+; Auto Carry Chains                                                ; On              ; On                 ;
+; Auto Open-Drain Pins                                             ; On              ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off             ; Off                ;
+; Auto ROM Replacement                                             ; On              ; On                 ;
+; Auto RAM Replacement                                             ; On              ; On                 ;
+; Auto DSP Block Replacement                                       ; On              ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto            ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto            ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On              ; On                 ;
+; Strict RAM Replacement                                           ; Off             ; Off                ;
+; Allow Synchronous Control Signals                                ; On              ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off             ; Off                ;
+; Auto RAM Block Balancing                                         ; On              ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off             ; Off                ;
+; Auto Resource Sharing                                            ; Off             ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off             ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off             ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off             ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On              ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off             ; Off                ;
+; Timing-Driven Synthesis                                          ; On              ; On                 ;
+; Report Parameter Settings                                        ; On              ; On                 ;
+; Report Source Assignments                                        ; On              ; On                 ;
+; Report Connectivity Checks                                       ; On              ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off             ; Off                ;
+; Synchronization Register Chain Length                            ; 2               ; 2                  ;
+; HDL message level                                                ; Level2          ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off             ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000            ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000            ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100             ; 100                ;
+; Clock MUX Protection                                             ; On              ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off             ; Off                ;
+; Block Design Naming                                              ; Auto            ; Auto               ;
+; SDC constraint protection                                        ; Off             ; Off                ;
+; Synthesis Effort                                                 ; Auto            ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On              ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off             ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium          ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto            ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On              ; On                 ;
++------------------------------------------------------------------+-----------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
+;     Processors 9-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                       ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                   ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------+---------+
+; button_debouncer.v               ; yes             ; User Verilog HDL File        ; C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/button_debouncer.v ;         ;
+; optionalproject.v                ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v  ;         ;
+; hvsync_generator.v               ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/hvsync_generator.v ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                      ;
++---------------------------------------------+--------------------+
+; Resource                                    ; Usage              ;
++---------------------------------------------+--------------------+
+; Estimated Total logic elements              ; 23,816             ;
+;                                             ;                    ;
+; Total combinational functions               ; 23809              ;
+; Logic element usage by number of LUT inputs ;                    ;
+;     -- 4 input functions                    ; 17308              ;
+;     -- 3 input functions                    ; 5144               ;
+;     -- <=2 input functions                  ; 1357               ;
+;                                             ;                    ;
+; Logic elements by mode                      ;                    ;
+;     -- normal mode                          ; 23624              ;
+;     -- arithmetic mode                      ; 185                ;
+;                                             ;                    ;
+; Total registers                             ; 662                ;
+;     -- Dedicated logic registers            ; 662                ;
+;     -- I/O registers                        ; 0                  ;
+;                                             ;                    ;
+; I/O pins                                    ; 20                 ;
+;                                             ;                    ;
+; Embedded Multiplier 9-bit elements          ; 0                  ;
+;                                             ;                    ;
+; Maximum fan-out node                        ; button_reset_click ;
+; Maximum fan-out                             ; 705                ;
+; Total fan-out                               ; 88815              ;
+; Average fan-out                             ; 3.62               ;
++---------------------------------------------+--------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                              ;
++---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------+------------------+--------------+
+; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                               ; Entity Name      ; Library Name ;
++---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------+------------------+--------------+
+; |OptionalProject                      ; 23809 (23632)       ; 662 (538)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 20   ; 0            ; 0          ; |OptionalProject                                  ; OptionalProject  ; work         ;
+;    |button_debouncer:debouncer_down|  ; 25 (25)             ; 20 (20)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |OptionalProject|button_debouncer:debouncer_down  ; button_debouncer ; work         ;
+;    |button_debouncer:debouncer_left|  ; 25 (25)             ; 20 (20)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |OptionalProject|button_debouncer:debouncer_left  ; button_debouncer ; work         ;
+;    |button_debouncer:debouncer_reset| ; 25 (25)             ; 20 (20)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |OptionalProject|button_debouncer:debouncer_reset ; button_debouncer ; work         ;
+;    |button_debouncer:debouncer_right| ; 25 (25)             ; 20 (20)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |OptionalProject|button_debouncer:debouncer_right ; button_debouncer ; work         ;
+;    |button_debouncer:debouncer_up|    ; 25 (25)             ; 20 (20)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |OptionalProject|button_debouncer:debouncer_up    ; button_debouncer ; work         ;
+;    |hvsync_generator:syncgen|         ; 52 (52)             ; 24 (24)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |OptionalProject|hvsync_generator:syncgen         ; hvsync_generator ; work         ;
++---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------+------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; checkDigit.tempY[0]_131235                         ; checkDigit.tempY[0] ; yes                    ;
+; Number of user-specified and inferred latches = 1  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; vga_R[3]~reg0                          ; Merged with vga_R[2]~reg0              ;
+; previousCell[4..9,11..31]              ; Merged with previousCell[10]           ;
+; previousCell[10]                       ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 29 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 662   ;
+; Number of registers using Synchronous Clear  ; 80    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 39    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+; 17:1               ; 5 bits    ; 55 LEs        ; 50 LEs               ; 5 LEs                  ; Yes        ; |OptionalProject|previousCell[0]                    ;
+; 19:1               ; 11 bits   ; 132 LEs       ; 132 LEs              ; 0 LEs                  ; Yes        ; |OptionalProject|vga_R[0]~reg0                      ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |OptionalProject|hvsync_generator:syncgen|d_vpos[1] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; No         ; |OptionalProject|tempX                              ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |OptionalProject|values                             ;
+; 16:1               ; 32 bits   ; 320 LEs       ; 320 LEs              ; 0 LEs                  ; No         ; |OptionalProject|Mux50                              ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 18 LEs               ; 9 LEs                  ; No         ; |OptionalProject|tempY                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: hvsync_generator:syncgen ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; H_DISPLAY      ; 640   ; Signed Integer                               ;
+; H_FRONT        ; 16    ; Signed Integer                               ;
+; H_SYNC         ; 96    ; Signed Integer                               ;
+; H_BACK         ; 48    ; Signed Integer                               ;
+; V_DISPLAY      ; 480   ; Signed Integer                               ;
+; V_BOTTOM       ; 10    ; Signed Integer                               ;
+; V_SYNC         ; 2     ; Signed Integer                               ;
+; V_TOP          ; 33    ; Signed Integer                               ;
+; H_SYNC_START   ; 656   ; Signed Integer                               ;
+; H_SYNC_END     ; 751   ; Signed Integer                               ;
+; H_MAX          ; 799   ; Signed Integer                               ;
+; V_SYNC_START   ; 490   ; Signed Integer                               ;
+; V_SYNC_END     ; 491   ; Signed Integer                               ;
+; V_MAX          ; 524   ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: button_debouncer:debouncer_reset ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; CNT_WIDTH      ; 16    ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: button_debouncer:debouncer_up ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; CNT_WIDTH      ; 16    ; Signed Integer                                    ;
++----------------+-------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: button_debouncer:debouncer_down ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; CNT_WIDTH      ; 16    ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: button_debouncer:debouncer_left ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; CNT_WIDTH      ; 16    ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: button_debouncer:debouncer_right ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; CNT_WIDTH      ; 16    ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Port Connectivity Checks: "button_debouncer:debouncer_right" ;
++------------+--------+----------+-----------------------------+
+; Port       ; Type   ; Severity ; Details                     ;
++------------+--------+----------+-----------------------------+
+; rst_i      ; Input  ; Info     ; Explicitly unconnected      ;
+; sw_state_o ; Output ; Info     ; Explicitly unconnected      ;
+; sw_up_o    ; Output ; Info     ; Explicitly unconnected      ;
++------------+--------+----------+-----------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "button_debouncer:debouncer_left" ;
++------------+--------+----------+----------------------------+
+; Port       ; Type   ; Severity ; Details                    ;
++------------+--------+----------+----------------------------+
+; rst_i      ; Input  ; Info     ; Explicitly unconnected     ;
+; sw_state_o ; Output ; Info     ; Explicitly unconnected     ;
+; sw_up_o    ; Output ; Info     ; Explicitly unconnected     ;
++------------+--------+----------+----------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "button_debouncer:debouncer_down" ;
++------------+--------+----------+----------------------------+
+; Port       ; Type   ; Severity ; Details                    ;
++------------+--------+----------+----------------------------+
+; rst_i      ; Input  ; Info     ; Explicitly unconnected     ;
+; sw_state_o ; Output ; Info     ; Explicitly unconnected     ;
+; sw_up_o    ; Output ; Info     ; Explicitly unconnected     ;
++------------+--------+----------+----------------------------+
+
+
++-----------------------------------------------------------+
+; Port Connectivity Checks: "button_debouncer:debouncer_up" ;
++------------+--------+----------+--------------------------+
+; Port       ; Type   ; Severity ; Details                  ;
++------------+--------+----------+--------------------------+
+; rst_i      ; Input  ; Info     ; Explicitly unconnected   ;
+; sw_state_o ; Output ; Info     ; Explicitly unconnected   ;
+; sw_up_o    ; Output ; Info     ; Explicitly unconnected   ;
++------------+--------+----------+--------------------------+
+
+
++--------------------------------------------------------------+
+; Port Connectivity Checks: "button_debouncer:debouncer_reset" ;
++------------+--------+----------+-----------------------------+
+; Port       ; Type   ; Severity ; Details                     ;
++------------+--------+----------+-----------------------------+
+; rst_i      ; Input  ; Info     ; Explicitly unconnected      ;
+; sw_state_o ; Output ; Info     ; Explicitly unconnected      ;
+; sw_up_o    ; Output ; Info     ; Explicitly unconnected      ;
++------------+--------+----------+-----------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "hvsync_generator:syncgen"                                                                                                                     ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                                                                                      ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; vpos  ; Output ; Warning  ; Output or bidir port (10 bits) is wider than the port expression (9 bits) it drives; bit(s) "vpos[9..9]" have no fanouts                     ;
+; reset ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 20                          ;
+; cycloneiii_ff         ; 662                         ;
+;     ENA               ; 39                          ;
+;     SCLR              ; 80                          ;
+;     plain             ; 543                         ;
+; cycloneiii_lcell_comb ; 23809                       ;
+;     arith             ; 185                         ;
+;         2 data inputs ; 183                         ;
+;         3 data inputs ; 2                           ;
+;     normal            ; 23624                       ;
+;         0 data inputs ; 11                          ;
+;         1 data inputs ; 18                          ;
+;         2 data inputs ; 1145                        ;
+;         3 data inputs ; 5142                        ;
+;         4 data inputs ; 17308                       ;
+;                       ;                             ;
+; Max LUT depth         ; 209.00                      ;
+; Average LUT depth     ; 188.38                      ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:14:50     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Wed Dec 01 19:18:01 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off OptionalProject -c OptionalProject
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file button_debouncer.v
+    Info (12023): Found entity 1: button_debouncer File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/button_debouncer.v Line: 1
+Warning (12125): Using design file optionalproject.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: OptionalProject File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 1
+Info (12127): Elaborating entity "OptionalProject" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at optionalproject.v(9): object "changed" assigned a value but never read File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 9
+Warning (10036): Verilog HDL or VHDL warning at optionalproject.v(12): object "previousCell" assigned a value but never read File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 12
+Warning (10241): Verilog HDL Function Declaration warning at optionalproject.v(205): function "checkButtonReset" may return a Don't Care value because its output register may not be assigned a value in every possible path through the function File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 205
+Warning (10776): Verilog HDL warning at optionalproject.v(463): variable j in static task or function compress may have unintended latch behavior File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 463
+Warning (10230): Verilog HDL assignment warning at optionalproject.v(671): truncated value with size 32 to match size of target (5) File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 671
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(701): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 701
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(701): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 701
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(703): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 703
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(703): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 703
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(705): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 705
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(705): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 705
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(707): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 707
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(707): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 707
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(709): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 709
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(709): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 709
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(714): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 714
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(714): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 714
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(716): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 716
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(716): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 716
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(718): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 718
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(718): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 718
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(723): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 723
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(723): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 723
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(725): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 725
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(725): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 725
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(727): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 727
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(727): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 727
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(729): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 729
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(729): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 729
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(731): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 731
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(731): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 731
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(736): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 736
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(736): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 736
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(738): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 738
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(738): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 738
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(740): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 740
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(740): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 740
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(742): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 742
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(742): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 742
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(744): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 744
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(744): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 744
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(746): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 746
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(746): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 746
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(751): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 751
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(751): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 751
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(753): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 753
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(753): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 753
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(755): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 755
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(755): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 755
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(757): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 757
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(757): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 757
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(759): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 759
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(759): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 759
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(761): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 761
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(761): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 761
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(763): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 763
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(763): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 763
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(765): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 765
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(765): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 765
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(767): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 767
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(767): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 767
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(772): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 772
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(772): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 772
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(774): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 774
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(774): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 774
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(776): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 776
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(776): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 776
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(778): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 778
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(778): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 778
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(780): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 780
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(780): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 780
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(782): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 782
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(782): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 782
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(784): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 784
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(784): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 784
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(786): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 786
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(786): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 786
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(791): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 791
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(791): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 791
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(793): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 793
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(793): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 793
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(795): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 795
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(795): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 795
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(797): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 797
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(797): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 797
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(799): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 799
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(799): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 799
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(801): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 801
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(801): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 801
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(803): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 803
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(803): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 803
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(805): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 805
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(805): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 805
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(807): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 807
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(807): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 807
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(809): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 809
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(809): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 809
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(811): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 811
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(811): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 811
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(816): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 816
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(816): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 816
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(818): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 818
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(818): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 818
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(820): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 820
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(820): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 820
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(822): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 822
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(822): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 822
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(824): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 824
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(824): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 824
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(826): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 826
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(826): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 826
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(828): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 828
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(828): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 828
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(830): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 830
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(830): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 830
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(832): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 832
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(832): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 832
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(834): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 834
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(834): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 834
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(836): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 836
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(836): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 836
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(838): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 838
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(838): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 838
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(840): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 840
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(840): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 840
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(842): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 842
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(842): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 842
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(844): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 844
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(844): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 844
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(849): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 849
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(849): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 849
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(851): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 851
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(851): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 851
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(853): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 853
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(853): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 853
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(855): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 855
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(855): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 855
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(857): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 857
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(857): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 857
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(859): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 859
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(859): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 859
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(861): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 861
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(861): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 861
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(863): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 863
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(863): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 863
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(865): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 865
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(865): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 865
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(867): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 867
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(867): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 867
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(869): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 869
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(869): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 869
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(874): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 874
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(874): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 874
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(876): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 876
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(876): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 876
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(878): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 878
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(878): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 878
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(880): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 880
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(880): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 880
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(882): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 882
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(882): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 882
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(884): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 884
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(884): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 884
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(886): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 886
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(886): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 886
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(888): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 888
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(888): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 888
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(890): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 890
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(890): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 890
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(892): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 892
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(892): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 892
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(894): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 894
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(894): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 894
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(896): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 896
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(896): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 896
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(898): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 898
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(898): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 898
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(903): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 903
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(903): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 903
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(905): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 905
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(905): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 905
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(907): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 907
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(907): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 907
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(909): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 909
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(909): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 909
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(911): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 911
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(911): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 911
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(913): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 913
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(913): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 913
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(915): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 915
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(915): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 915
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(917): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 917
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(917): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 917
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(919): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 919
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(919): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 919
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(921): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 921
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(921): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 921
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(923): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 923
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(923): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 923
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(925): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 925
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(925): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 925
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(927): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 927
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(927): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 927
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(929): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 929
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(929): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 929
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(931): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 931
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(931): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 931
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(933): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 933
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(933): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 933
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(935): variable "tempY" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 935
+Warning (10242): Verilog HDL Function Declaration warning at optionalproject.v(935): variable "tempX" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 935
+Warning (10230): Verilog HDL assignment warning at optionalproject.v(939): truncated value with size 32 to match size of target (13) File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 939
+Warning (10030): Net "checkDigit.tempX" at optionalproject.v(681) has no driver or initial value, using a default initial value '0' File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 681
+Warning (10030): Net "checkDigit.tempY" at optionalproject.v(682) has no driver or initial value, using a default initial value '0' File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 682
+Info (10041): Inferred latch for "checkDigit.tempY[0]" at optionalproject.v(696) File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 696
+Warning (12125): Using design file hvsync_generator.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: hvsync_generator File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/hvsync_generator.v Line: 1
+Info (12128): Elaborating entity "hvsync_generator" for hierarchy "hvsync_generator:syncgen" File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 36
+Warning (10230): Verilog HDL assignment warning at hvsync_generator.v(42): truncated value with size 32 to match size of target (10) File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/hvsync_generator.v Line: 42
+Warning (10230): Verilog HDL assignment warning at hvsync_generator.v(46): truncated value with size 32 to match size of target (10) File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/hvsync_generator.v Line: 46
+Info (12128): Elaborating entity "button_debouncer" for hierarchy "button_debouncer:debouncer_reset" File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 40
+Warning (10230): Verilog HDL assignment warning at button_debouncer.v(40): truncated value with size 32 to match size of target (16) File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/button_debouncer.v Line: 40
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch checkDigit.tempY[0]_131235 has unsafe behavior File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/optionalproject.v Line: 696
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hvsync_generator:syncgen|vpos[8] File: C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/hvsync_generator.v Line: 71
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/output_files/OptionalProject.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 24360 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 14 output pins
+    Info (21061): Implemented 24340 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 223 warnings
+    Info: Peak virtual memory: 4980 megabytes
+    Info: Processing ended: Wed Dec 01 19:33:13 2021
+    Info: Elapsed time: 00:15:12
+    Info: Total CPU time (on all processors): 00:15:27
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/marko/Documents/Dev/Innopolis/ComputerArchitecture/OptionalProject/output_files/OptionalProject.map.smsg.
+
+

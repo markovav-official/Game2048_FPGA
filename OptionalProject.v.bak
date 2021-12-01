@@ -1,0 +1,19 @@
+module OptionalProject (clk, vga_h_sync, vga_v_sync, vga_R, vga_G, vga_B);
+input clk;
+output vga_h_sync, vga_v-sync, vga_R, vga-G, vga-B;
+
+wire inDisplayArea;
+wire [9:0] CounterX;
+wire [8:0] CounterY;
+
+hvsync_generator syncgen(.clk(clk), .hsync (vga_h_sync), .vsync (vga_v_sync),
+	.display_on(inDisplayArea), .hpos (CounterX), .vpos (Countery));
+
+reg vga_R, vga_G, vga_B;
+always @(posedge clk)
+begin
+	vga_R <= 1' b0;
+	vga_G <= inDisplayArea && CounterY[2];
+	vga_B <= inDisplayArea && CounterX[4];
+end
+endmodule
