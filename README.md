@@ -4,6 +4,10 @@
 
 This project is intended for the «Computer Architecture» course at Innopolis University. The implemented game can be used for entertainment and also for educational purposes.
 
+
+https://github.com/markovav-official/Game2048_FPGA/assets/88292173/abf7656e-e5c3-4b90-90dd-86bd0bc5e710
+
+
 # Getting Started
 Here is the step-by-step instruction, how to use our implementation:
 1. Install Quartus Prime 20.1.1 and drivers
