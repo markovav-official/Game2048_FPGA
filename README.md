@@ -4,6 +4,7 @@
 
 This project is intended for the «Computer Architecture» course at Innopolis University. The implemented game can be used for entertainment and also for educational purposes.
 
+To find more about the project, take a look at `Article.pdf`.
 
 https://github.com/markovav-official/Game2048_FPGA/assets/88292173/abf7656e-e5c3-4b90-90dd-86bd0bc5e710
 
